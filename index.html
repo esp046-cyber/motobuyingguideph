@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 PH Motorcycle Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: #fff;
+      padding: 1%;
+      min-height: 100vh;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
+      padding: 8px 1%;
+      border-radius: 8px;
+      margin-bottom: 1%;
+      box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+    }
+    
+    h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .subtitle {
+      text-align: center;
+      font-size: 0.75rem;
+      margin-top: 3px;
+      opacity: 0.95;
+    }
+    
+    .tabs {
+      display: flex;
+      gap: 1%;
+      margin-bottom: 1%;
+      overflow-x: auto;
+    }
+    
+    .tab {
+      flex: 1;
+      padding: 10px 8px;
+      background: #333;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+    
+    .tab.active {
+      background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
+      box-shadow: 0 2px 10px rgba(255, 107, 0, 0.4);
+    }
+    
+    .tab:hover {
+      background: #444;
+    }
+    
+    .tab.active:hover {
+      background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
+    }
+    
+    .content {
+      display: none;
+    }
+    
+    .content.active {
+      display: block;
+    }
+    
+    .bike-card {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+      border-radius: 10px;
+      padding: 1%;
+      margin-bottom: 1%;
+      border-left: 4px solid #ff6b00;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
+    
+    .bike-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .bike-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ff8c00;
+    }
+    
+    .bike-price {
+      font-size: 0.95rem;
+      color: #4CAF50;
+      font-weight: 700;
+    }
+    
+    .bike-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin: 8px 0;
+      font-size: 0.8rem;
+    }
+    
+    .spec-item {
+      background: #333;
+      padding: 6px;
+      border-radius: 4px;
+    }
+    
+    .spec-label {
+      color: #aaa;
+      font-size: 0.7rem;
+    }
+    
+    .spec-value {
+      color: #fff;
+      font-weight: 600;
+    }
+    
+    .bike-desc {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: #ccc;
+      margin-top: 8px;
+    }
+    
+    .category-title {
+      font-size: 0.95rem;
+      color: #ff8c00;
+      font-weight: 700;
+      margin: 10px 0 8px 0;
+      padding-left: 1%;
+      border-left: 3px solid #ff6b00;
+    }
+    
+    .tips-list {
+      list-style: none;
+    }
+    
+    .tips-list li {
+      background: #2a2a2a;
+      padding: 10px 1%;
+      margin-bottom: 1%;
+      border-radius: 6px;
+      border-left: 3px solid #ff6b00;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    
+    .tips-list li:before {
+      content: "🏍️ ";
+      margin-right: 6px;
+    }
+    
+    .dealer-card {
+      background: #2a2a2a;
+      padding: 1%;
+      margin-bottom: 1%;
+      border-radius: 8px;
+      border: 1px solid #444;
+    }
+    
+    .dealer-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ff8c00;
+      margin-bottom: 5px;
+    }
+    
+    .dealer-info {
+      font-size: 0.8rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+    
+    .budget-range {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+      padding: 1%;
+      border-radius: 8px;
+      margin-bottom: 1%;
+      border-left: 4px solid #ff6b00;
+    }
+    
+    .range-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ff8c00;
+      margin-bottom: 8px;
+    }
+    
+    .bike-list {
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+    
+    .calculator-box {
+      background: #2a2a2a;
+      padding: 1%;
+      border-radius: 8px;
+      margin-bottom: 1%;
+    }
+    
+    .calc-input-group {
+      margin-bottom: 12px;
+    }
+    
+    .calc-label {
+      display: block;
+      font-size: 0.85rem;
+      color: #ff8c00;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    
+    .calc-input, .calc-select {
+      width: 100%;
+      padding: 10px;
+      background: #1f1f1f;
+      border: 2px solid #444;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    
+    .calc-input:focus, .calc-select:focus {
+      outline: none;
+      border-color: #ff6b00;
+    }
+    
+    .calc-button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+    .calc-button:active {
+      transform: scale(0.98);
+    }
+    
+    .result-box {
+      background: linear-gradient(135deg, #1a4d2e 0%, #2d5f3f 100%);
+      padding: 1%;
+      border-radius: 8px;
+      margin-top: 12px;
+      border: 2px solid #4CAF50;
+    }
+    
+    .result-title {
+      font-size: 0.85rem;
+      color: #a5d6a7;
+      margin-bottom: 8px;
+    }
+    
+    .result-value {
+      font-size: 1.4rem;
+      color: #4CAF50;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .result-breakdown {
+      font-size: 0.8rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+    
+    .school-card {
+      background: #2a2a2a;
+      padding: 1%;
+      margin-bottom: 1%;
+      border-radius: 8px;
+      border-left: 4px solid #ff6b00;
+    }
+    
+    .school-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ff8c00;
+      margin-bottom: 5px;
+    }
+    
+    .school-location {
+      font-size: 0.8rem;
+      color: #4CAF50;
+      margin-bottom: 8px;
+    }
+    
+    .school-info {
+      font-size: 0.8rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+    
+    .emergency-card {
+      background: linear-gradient(135deg, #8B0000 0%, #B22222 100%);
+      padding: 1%;
+      margin-bottom: 1%;
+      border-radius: 8px;
+      border: 2px solid #FF4444;
+    }
+    
+    .emergency-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    
+    .emergency-number {
+      font-size: 1.3rem;
+      color: #FFD700;
+      font-weight: 700;
+      margin: 5px 0;
+    }
+    
+    .emergency-info {
+      font-size: 0.8rem;
+      color: #fff;
+      line-height: 1.5;
+    }
+    
+    .route-card {
+      background: linear-gradient(135deg, #1a3a52 0%, #2d4f66 100%);
+      padding: 1%;
+      margin-bottom: 1%;
+      border-radius: 8px;
+      border-left: 4px solid #4A90E2;
+    }
+    
+    .route-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #4A90E2;
+      margin-bottom: 5px;
+    }
+    
+    .route-distance {
+      font-size: 0.85rem;
+      color: #FFD700;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .route-info {
+      font-size: 0.8rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏍️ 2026 Philippine Motorcycle Buying Guide</h1>
+    <div class="subtitle">Your Complete Pinoy Moto Resource</div>
+  </header>
+  
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('commuter')">Commuter</button>
+    <button class="tab" onclick="showTab('sport')">Sport</button>
+    <button class="tab" onclick="showTab('adventure')">Adventure</button>
+    <button class="tab" onclick="showTab('budget')">Budget</button>
+    <button class="tab" onclick="showTab('calculator')">Calculator</button>
+    <button class="tab" onclick="showTab('loan')">Loan</button>
+    <button class="tab" onclick="showTab('routes')">Routes</button>
+    <button class="tab" onclick="showTab('emergency')">SOS</button>
+    <button class="tab" onclick="showTab('schools')">Schools</button>
+    <button class="tab" onclick="showTab('tips')">Tips</button>
+    <button class="tab" onclick="showTab('dealers')">Dealers</button>
+    <button class="tab" onclick="showTab('maintenance')">Service</button>
+    <button class="tab" onclick="showTab('legal')">Legal</button>
+    <button class="tab" onclick="showTab('gear')">Gear</button>
+  </div>
+  
+  <div id="loan" class="content">
+    <div class="category-title">Motorcycle Loan Calculator</div>
+    
+    <div class="calculator-box">
+      <div class="calc-input-group">
+        <label class="calc-label">Motorcycle Price (₱)</label>
+        <input type="number" class="calc-input" id="bikePrice" value="100000" min="30000" max="1000000" step="1000">
+      </div>
+      
+      <div class="calc-input-group">
+        <label class="calc-label">Down Payment (₱)</label>
+        <input type="number" class="calc-input" id="downPayment" value="20000" min="0" step="1000">
+      </div>
+      
+      <div class="calc-input-group">
+        <label class="calc-label">Loan Term (months)</label>
+        <select class="calc-select" id="loanTerm">
+          <option value="12">12 months (1 year)</option>
+          <option value="18">18 months</option>
+          <option value="24" selected>24 months (2 years)</option>
+          <option value="36">36 months (3 years)</option>
+        </select>
+      </div>
+      
+      <div class="calc-input-group">
+        <label class="calc-label">Interest Rate (% per month)</label>
+        <select class="calc-select" id="interestRate">
+          <option value="1.25">1.25% - Bank financing</option>
+          <option value="1.50">1.50% - Bank financing</option>
+          <option value="1.75">1.75% - Dealer in-house</option>
+          <option value="2.00" selected>2.00% - Dealer in-house</option>
+          <option value="2.50">2.50% - Dealer in-house</option>
+          <option value="3.00">3.00% - High rate</option>
+        </select>
+      </div>
+      
+      <button class="calc-button" onclick="calculateLoan()">Calculate Monthly Payment</button>
+      
+      <div id="loanResult" style="display:none;">
+        <div class="result-box">
+          <div class="result-title">💳 Monthly Payment</div>
+          <div class="result-value" id="monthlyPayment">₱0</div>
+          <div class="result-breakdown" id="loanBreakdown"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">Financing Options Comparison</div>
+      <div class="bike-list">
+        <strong>Bank Financing (1.25-1.75% monthly):</strong><br>
+        ✅ Lower interest rates<br>
+        ✅ Flexible terms (12-36 months)<br>
+        ❌ Stricter requirements (payslips, ITR, good credit)<br>
+        ❌ Slower approval (3-7 days)<br>
+        <em>Best for: Employees with stable income</em><br><br>
+        
+        <strong>Dealer In-House (1.75-3% monthly):</strong><br>
+        ✅ Easy approval, minimal requirements<br>
+        ✅ Fast release (same day possible)<br>
+        ✅ Accept self-employed, no ITR needed<br>
+        ❌ Higher interest rates<br>
+        <em>Best for: Quick purchase, flexible income</em><br><br>
+        
+        <strong>Cash Purchase:</strong><br>
+        ✅ No interest, save thousands<br>
+        ✅ Immediate full ownership<br>
+        ✅ Often get discount (₱2,000-5,000 off)<br>
+        <em>Best for: If you have the budget</em>
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">📋 Bank Financing Requirements</div>
+      </div>
+      <div class="bike-desc">
+        <strong>For Employed:</strong><br>
+        • 2 valid IDs<br>
+        • Latest 3 months payslips<br>
+        • Certificate of Employment<br>
+        • Bank statements (3-6 months)<br>
+        • Proof of billing (Meralco, water, etc.)<br><br>
+        
+        <strong>For Self-Employed/Business Owner:</strong><br>
+        • 2 valid IDs<br>
+        • ITR for past 2 years<br>
+        • Business permit<br>
+        • Bank statements (6 months)<br>
+        • Proof of billing<br><br>
+        
+        <strong>Partner Banks:</strong> BPI, BDO, Metrobank, Security Bank, RCBC, Maybank
+      </div>
+    </div>
+    
+    <ul class="tips-list">
+      <li><strong>Budget rule:</strong> Monthly payment should not exceed 30% of your monthly income. Example: ₱20,000 salary = max ₱6,000 payment.</li>
+      
+      <li><strong>Hidden costs:</strong> Add ₱1,000-2,000 for processing fee, insurance, chattel mortgage. First payment is usually higher due to these fees.</li>
+      
+      <li><strong>Shorter term = less interest:</strong> A ₱100k bike at 2%: 12 months pays ₱13,200 interest vs 36 months pays ₱43,200 interest!</li>
+      
+      <li><strong>Early payment:</strong> Most banks allow early settlement with penalty waiver after 6-12 months. Check your contract!</li>
+      
+      <li><strong>Negotiate:</strong> If buying multiple units or during promos, dealers may reduce interest rate by 0.25-0.5%. Always ask!</li>
+    </ul>
+  </div>
+  
+  <div id="routes" class="content">
+    <div class="category-title">🗺️ Popular Motorcycle Routes in PH</div>
+    
+    <div class="route-card">
+      <div class="route-name">Manila to Tagaytay via Aguinaldo Highway</div>
+      <div class="route-distance">📏 Distance: 60 km | ⏱️ Time: 1.5-2 hours | 🏍️ Difficulty: Easy</div>
+      <div class="route-info">
+        <strong>Route:</strong> SLEX Sta. Rosa Exit → Tagaytay-Sta. Rosa Road → Aguinaldo Highway → Tagaytay Rotonda<br><br>
+        
+        <strong>Best Time:</strong> Early morning (5-7 AM) to avoid traffic and enjoy cool weather<br><br>
+        
+        <strong>Gas Stations:</strong><br>
+        • Shell Sta. Rosa (km 0)<br>
+        • Petron Silang (km 35)<br>
+        • Shell Tagaytay Rotonda (km 60)<br><br>
+        
+        <strong>Stops & Attractions:</strong><br>
+        • Bag of Beans (breakfast/coffee)<br>
+        • People's Park in the Sky<br>
+        • Taal Vista overlooking the lake<br>
+        • Bulalo restaurants along highway<br><br>
+        
+        <strong>Tips:</strong> Bring jacket (cold at summit). Road is smooth but watch for fog early morning. Weekends very crowded, go weekdays if possible.
+      </div>
+    </div>
+    
+    <div class="route-card">
+      <div class="route-name">Batangas Coastal Loop</div>
+      <div class="route-distance">📏 Distance: 180 km | ⏱️ Time: 5-6 hours | 🏍️ Difficulty: Moderate</div>
+      <div class="route-info">
+        <strong>Route:</strong> STAR Tollway → Lipa → San Juan → Laiya → Matabungkay → Nasugbu → Tagaytay → Manila<br><br>
+        
+        <strong>Highlights:</strong><br>
+        • Beautiful coastal roads with ocean views<br>
+        • Beach stops (Laiya, Matabungkay)<br>
+        • Fresh seafood restaurants<br>
+        • Winding mountain roads<br><br>
+        
+        <strong>Gas Stations:</strong> Lipa City, San Juan, Nasugbu town proper<br><br>
+        
+        <strong>Best Season:</strong> October-May (dry season). Avoid July-September (typhoon season)<br><br>
+        
+        <strong>Tips:</strong> Start early (6 AM). Bring waterproof bags for beach stops. Roads are good but narrow in some coastal sections. Full tank before leaving Lipa!
+      </div>
+    </div>
+    
+    <div class="route-card">
+      <div class="route-name">Manila to Baguio via Kennon Road</div>
+      <div class="route-distance">📏 Distance: 250 km | ⏱️ Time: 5-7 hours | 🏍️ Difficulty: Hard</div>
+      <div class="route-info">
+        <strong>Route:</strong> NLEX → SCTEX → Tarlac Exit → Camp 1 → Kennon Road → Baguio<br><br>
+        
+        <strong>Alternative:</strong> Marcos Highway (safer, longer, +1 hour)<br><br>
+        
+        <strong>Kennon Road Challenge:</strong><br>
+        • 34 km of hairpin turns and steep grades<br>
+        • Elevation gain: 1,500 meters<br>
+        • Often foggy and cold<br>
+        • Closed during heavy rain/landslides<br><br>
+        
+        <strong>Gas Stations:</strong><br>
+        • Last gas: Rosario, La Union (before ascent)<br>
+        • Next gas: Baguio City<br>
+        <em>⚠️ FILL UP at Rosario! 50+ km with no gas stations</em><br><br>
+        
+        <strong>Essential Gear:</strong> Rain gear, warm jacket, gloves, extra layers<br><br>
+        
+        <strong>Tips:</strong> Check Kennon Road status before leaving (DPWH Facebook). Ride defensively - buses cut corners. Test brakes before descent. Temperature drops to 12-18°C!
+      </div>
+    </div>
+    
+    <div class="route-card">
+      <div class="route-name">Manila to Bicol Loop (Adventure Ride)</div>
+      <div class="route-distance">📏 Distance: 800 km round trip | ⏱️ Time: 3-5 days | 🏍️ Difficulty: Expert</div>
+      <div class="route-info">
+        <strong>Route:</strong> SLEX → Lucena → Daet → Naga → Legazpi → Sorsogon → Return<br><br>
+        
+        <strong>Day 1:</strong> Manila → Naga (380 km, 7-8 hrs)<br>
+        • Stop: Lucena, Daet for meals<br>
+        • Overnight: Naga City<br><br>
+        
+        <strong>Day 2:</strong> Naga → Legazpi (140 km, 3-4 hrs)<br>
+        • Visit: Mayon Volcano viewing, Cagsawa Ruins<br>
+        • Overnight: Legazpi<br><br>
+        
+        <strong>Day 3:</strong> Legazpi → Sorsogon → Return to Naga (180 km)<br>
+        • Beach stops, Donsol whale sharks (seasonal)<br><br>
+        
+        <strong>Day 4-5:</strong> Naga → Manila (380 km)<br><br>
+        
+        <strong>Gas Stations:</strong> Available every 50-80 km along MAHARLIKA Highway<br><br>
+        
+        <strong>Tips:</strong> Book hotels in advance. Bring spare parts (spark plug, fuses). Weather unpredictable - always carry rain gear. Best months: January-April.
+      </div>
+    </div>
+    
+    <div class="route-card">
+      <div class="route-name">North Luzon: Baguio → Sagada → Banaue Loop</div>
+      <div class="route-distance">📏 Distance: 400 km | ⏱️ Time: 3-4 days | 🏍️ Difficulty: Expert</div>
+      <div class="route-info">
+        <strong>Epic Mountain Adventure:</strong><br>
+        • Baguio → Sagada (150 km, 4-5 hrs)<br>
+        • Sagada → Banaue (90 km, 3-4 hrs)<br>
+        • Banaue → Baguio → Manila (160 km + 250 km)<br><br>
+        
+        <strong>Challenges:</strong><br>
+        • Narrow mountain roads, sheer cliffs<br>
+        • Unpaved sections near Sagada<br>
+        • Altitude: up to 1,800m<br>
+        • Limited gas stations (plan carefully)<br><br>
+        
+        <strong>Attractions:</strong><br>
+        • Sagada: Hanging coffins, caves, sunrise at Kiltepan<br>
+        • Banaue: UNESCO Rice Terraces<br>
+        • Breathtaking mountain scenery<br><br>
+        
+        <strong>⚠️ For experienced riders only!** Adventure bike or dual-sport recommended.
+      </div>
+    </div>
+    
+    <div class="category-title">Route Planning Essentials</div>
+    
+    <ul class="tips-list">
+      <li><strong>Gas strategy:</strong> Never let tank go below 25%. Fill up when you see gas stations in remote areas. Carry extra liter in fuel bottle for emergencies.</li>
+      
+      <li><strong>Apps to use:</strong> Waze (traffic/route), Google Maps (offline download), Angkas/Grab (check road conditions), Weather PH (forecast)</li>
+      
+      <li><strong>Group riding:</strong> Ride in staggered formation. Hand signals for hazards. Slowest rider sets pace. Regroup every 50 km or at gas stops.</li>
+      
+      <li><strong>Emergency kit:</strong> First aid, tire repair, tools, flashlight, powerbank, emergency cash (₱2,000+), photocopies of license/OR-CR.</li>
+      
+      <li><strong>Physical prep:</strong> Long rides are exhausting. Take 10-min breaks every 2 hours. Stretch legs, hydrate. Never ride when sleepy!</li>
+      
+      <li><strong>Avoid night riding:</strong> On highways, 50% of accidents happen 6 PM-6 AM. Poor visibility, drunk drivers, animal crossings. Plan to arrive before sunset.</li>
+    </ul>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">🎒 What to Pack for Long Rides</div>
+      </div>
+      <div class="bike-desc">
+        <strong>Clothing:</strong> 2 sets riding gear, extra shirt, socks, underwear, towel, flip-flops<br><br>
+        
+        <strong>Safety:</strong> Rain gear, first aid kit, spare visor, gloves, reflective vest<br><br>
+        
+        <strong>Tools:</strong> Basic toolkit, tire repair, pump, spare spark plug, fuses, zip ties, duct tape<br><br>
+        
+        <strong>Electronics:</strong> Phone, powerbank, charger, GoPro/action cam (optional), offline maps<br><br>
+        
+        <strong>Misc:</strong> Sunscreen, toiletries, plastic bags (waterproofing), bungee cords, drinking water, energy bars
+      </div>
+    </div>
+  </div>
+  
+  <div id="emergency" class="content">
+    <div class="category-title">🚨 Emergency Contacts & Breakdown Help</div>
+    
+    <div class="emergency-card">
+      <div class="emergency-title">🚑 EMERGENCY NUMBERS - SAVE THESE!</div>
+      <div class="emergency-number">911 - National Emergency Hotline</div>
+      <div class="emergency-info">
+        Police, Fire, Medical - Free from any phone<br>
+        Available 24/7 nationwide
+      </div>
+    </div>
+    
+    <div class="emergency-card">
+      <div class="emergency-title">🏥 Medical Emergency</div>
+      <div class="emergency-number">Red Cross: 143 | (02) 8790-2300</div>
+      <div class="emergency-info">
+        24/7 ambulance service<br>
+        Blood bank and emergency response
+      </div>
+    </div>
+    
+    <div class="category-title">Insurance Hotlines (24/7)</div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">🛡️ Malayan Insurance</div>
+      <div class="dealer-info">
+        <strong>Hotline:</strong> (02) 8528-8532 | 0917-888-6252<br>
+        <strong>Claims:</strong> Email claims@malayan.com.ph<br>
+        <strong>Coverage:</strong> Motorcycle comprehensive insurance<br>
+        Most popular for motorcycle riders
+      </div>
+    </div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">🛡️ MAPFRE Insurance</div>
+      <div class="dealer-info">
+        <strong>Hotline:</strong> (02) 8581-5000 | 0917-532-6273<br>
+        <strong>Claims:</strong> 24/7 roadside assistance included<br>
+        <strong>Coverage:</strong> CTPL and comprehensive plans<br>
+        Good for touring riders, towing included
+      </div>
+    </div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">🛡️ Pioneer Insurance</div>
+      <div class="dealer-info">
+        <strong>Hotline:</strong> (02) 8333-8333 | 0917-839-7466<br>
+        <strong>Claims:</strong> Fast processing, 3-7 days<br>
+        <strong>Coverage:</strong> Motorcycle and personal accident insurance<br>
+        Affordable premiums for young riders
+      </div>
+    </div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">🛡️ BPI MS Insurance</div>
+      <div class="dealer-info">
+        <strong>Hotline:</strong> (02) 8818-5000 | 0917-811-0000<br>
+        <strong>Claims:</strong> Online claims via app<br>
+        <strong>Coverage:</strong> CTPL and comprehensive<br>
+        Easy if you have BPI account
+      </div>
+    </div>
+    
+    <div class="category-title">Towing & Roadside Assistance</div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">🚛 Moto Rescue PH</div>
+      <div class="dealer-info">
+        <strong>Hotline:</strong> 0917-123-4567 (Sample)<br>
+        <strong>Coverage:</strong> Metro Manila, Rizal, Cavite, Laguna<br>
+        <strong>Rate:</strong> ₱500-1,500 depending on distance<br>
+        <strong>Service:</strong> Pickup and delivery to nearest shop<br>
+        Available 24/7, arrives within 30-60 mins
+      </div>
+    </div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">🚛 AAP Towing Services</div>
+      <div class="dealer-info">
+        <strong>Hotline:</strong> (02) 8888-8888 (Check local area code)<br>
+        <strong>Coverage:</strong> Major cities nationwide<br>
+        <strong>Rate:</strong> ₱800-2,000 base + ₱50/km<br>
+        <strong>Note:</strong> Also handles cars, may take longer for motorcycle
+      </div>
+    </div>
+    
+    <div class="category-title">24/7 Motorcycle Repair Shops</div>
+    
+    <div class="school-card">
+      <div class="school-name">🔧 Metro Manila - QC Area</div>
+      <div class="school-location">📍 Commonwealth Ave, Quezon City</div>
+      <div class="school-info">
+        <strong>Shop:</strong> RJ Moto Repair | Open 24/7<br>
+        <strong>Contact:</strong> 0917-XXX-XXXX<br>
+        <strong>Services:</strong> Emergency repairs, tire change, electrical<br>
+        <strong>Note:</strong> Bring your own parts if off-hours
+      </div>
+    </div>
+    
+    <div class="school-card">
+      <div class="school-name">🔧 Metro Manila - Makati/BGC</div>
+      <div class="school-location">📍 Chino Roces Ave, Makati</div>
+      <div class="school-info">
+        <strong>Shop:</strong> FastFix Motorcycle Clinic | 6 AM - 12 MN<br>
+        <strong>Contact:</strong> 0922-XXX-XXXX<br>
+        <strong>Services:</strong> All brands, quick repairs<br>
+        <strong>Rate:</strong> ₱300-500 service fee + parts
+      </div>
+    </div>
+    
+    <div class="school-card">
+      <div class="school-name">🔧 NLEX/SCTEX Emergency</div>
+      <div class="school-location">📍 Expressway Service Areas</div>
+      <div class="school-info">
+        <strong>NLEX Patrol:</strong> 0917-532-6539<br>
+        <strong>SCTEX Patrol:</strong> 0917-551-7283<br>
+        <strong>Services:</strong> Basic roadside help, towing to exit<br>
+        <strong>Note:</strong> Limited tools, tow to nearest town shop
+      </div>
+    </div>
+    
+    <div class="category-title">⚠️ What To Do After An Accident</div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Step 1: Check for Injuries (First 60 seconds)</div>
+      </div>
+      <div class="bike-desc">
+        • Check yourself - can you move? Any pain?<br>
+        • Check other party if involved<br>
+        • Call 911 if anyone is seriously hurt<br>
+        • Move to safe area if possible (side of road)<br>
+        • Turn on hazard lights, set up warning triangle
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Step 2: Document Everything (Next 5 minutes)</div>
+      </div>
+      <div class="bike-desc">
+        • Take photos: Damage to vehicles, skid marks, surroundings, plate numbers<br>
+        • Get witness info: Names, contact numbers<br>
+        • Exchange info with other party: License, OR/CR, insurance<br>
+        • Note time, location, weather conditions<br>
+        • DO NOT admit fault or sign anything yet!
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Step 3: Report to Authorities</div>
+      </div>
+      <div class="bike-desc">
+        • Call police/traffic enforcer to file report<br>
+        • Get police report number/copy<br>
+        • Call your insurance company immediately<br>
+        • Report within 24 hours (requirement for claims)<br>
+        • If hit-and-run: Report to police station, get blotter
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Step 4: Insurance Claim Process</div>
+      </div>
+      <div class="bike-desc">
+        <strong>Requirements:</strong><br>
+        • Police report<br>
+        • Photos of damage<br>
+        • OR/CR, driver's license copies<br>
+        • Repair estimates (3 quotations)<br>
+        • Insurance policy documents<br><br>
+        
+        <strong>Timeline:</strong> 7-30 days for processing<br>
+        <strong>Repair:</strong> Use accredited casa or shops<br><br>
+        
+        <em>Tip: Keep original documents, submit photocopies only!</em>
+      </div>
+    </div>
+    
+    <ul class="tips-list">
+      <li><strong>Save these numbers in your phone NOW!</strong> In emergencies, you won't have time to search. Add contacts as "911 Emergency", "Insurance MAPFRE", etc.</li>
+      
+      <li><strong>Carry emergency cash:</strong> Keep ₱2,000-5,000 in your bike at all times. ATMs may not be available, towing services need cash payment.</li>
+      
+      <li><strong>Medical info card:</strong> Put card in wallet with blood type, allergies, emergency contact. Rescuers check wallets first!</li>
+      
+      <li><strong>Know your blood type!</strong> O+ is most common (31% of Filipinos), AB- is rarest. Wear medical ID bracelet if you have allergies.</li>
+      
+      <li><strong>Join rider groups:</strong> Facebook groups like "Riders of Manila", "Moto Rescue PH" have members who help stranded riders 24/7.</li>
+      
+      <li><strong>Breakdown on highway?</strong> NEVER stand behind your bike. Stand on the shoulder, far from traffic. Reflective vest/triangle is mandatory!</li>
+    </ul>
+    
+    <div class="budget-range">
+      <div class="range-title">📱 Essential Apps for Riders</div>
+      <div class="bike-list">
+        • <strong>Emergency:</strong> 911 PH App (official emergency app)<br>
+        • <strong>Navigation:</strong> Waze, Google Maps (download offline)<br>
+        • <strong>First Aid:</strong> Red Cross First Aid App<br>
+        • <strong>Weather:</strong> PAGASA, Weather PH<br>
+        • <strong>Community:</strong> Telegram/FB Groups for rider help<br>
+        • <strong>Insurance:</strong> Your insurance company's app<br><br>
+        <em>Download all before your ride! No signal = no help.</em>
+      </div>
+    </div>
+  </div>
+
+  <div id="calculator" class="content">
+    <div class="category-title">Fuel Cost Calculator</div>
+    
+    <div class="calculator-box">
+      <div class="calc-input-group">
+        <label class="calc-label">Select Your Bike Type</label>
+        <select class="calc-select" id="bikeType" onchange="updateFuelEconomy()">
+          <option value="50">Scooter 110-125cc (50 km/L)</option>
+          <option value="45">Scooter 150-160cc (45 km/L)</option>
+          <option value="42">Underbone 125-155cc (42 km/L)</option>
+          <option value="38">Sport 150cc (38 km/L)</option>
+          <option value="35">Sport 200-400cc (35 km/L)</option>
+          <option value="32">Big Bike 400cc+ (32 km/L)</option>
+          <option value="30">Adventure 250-400cc (30 km/L)</option>
+        </select>
+      </div>
+      
+      <div class="calc-input-group">
+        <label class="calc-label">Daily Kilometers (one way)</label>
+        <input type="number" class="calc-input" id="dailyKm" value="15" min="1" max="200">
+      </div>
+      
+      <div class="calc-input-group">
+        <label class="calc-label">Working Days per Month</label>
+        <input type="number" class="calc-input" id="workDays" value="22" min="1" max="31">
+      </div>
+      
+      <div class="calc-input-group">
+        <label class="calc-label">Gas Price per Liter (₱)</label>
+        <input type="number" class="calc-input" id="gasPrice" value="65" min="50" max="100" step="0.50">
+      </div>
+      
+      <button class="calc-button" onclick="calculateFuel()">Calculate Fuel Cost</button>
+      
+      <div id="fuelResult" style="display:none;">
+        <div class="result-box">
+          <div class="result-title">💰 Monthly Fuel Cost</div>
+          <div class="result-value" id="monthlyCost">₱0</div>
+          <div class="result-breakdown" id="breakdown"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">💡 Fuel Saving Tips</div>
+      </div>
+      <div class="bike-desc">
+        <strong>Maximize your km/L:</strong><br>
+        • Maintain steady speed (40-60 km/h is most efficient)<br>
+        • Keep tires properly inflated (saves 5-10% fuel)<br>
+        • Avoid sudden acceleration and hard braking<br>
+        • Regular maintenance (clean air filter, fresh spark plugs)<br>
+        • Remove unnecessary weight and cargo<br>
+        • Use engine braking when slowing down<br><br>
+        
+        <strong>Where to buy cheap gas:</strong><br>
+        • Seaoil, Petron, Shell have loyalty programs<br>
+        • Gas stations along highways usually ₱2-3 cheaper<br>
+        • Avoid premium fuel unless required (waste of money for most bikes)<br>
+        • Fill up early morning when gas is denser
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">Sample Monthly Costs (30km daily commute)</div>
+      <div class="bike-list">
+        • Scooter 125cc @ 50 km/L: <strong>₱858/month</strong><br>
+        • Underbone 150cc @ 42 km/L: <strong>₱1,028/month</strong><br>
+        • Sport 150cc @ 38 km/L: <strong>₱1,137/month</strong><br>
+        • Sport 400cc @ 35 km/L: <strong>₱1,234/month</strong><br>
+        • Big Bike 650cc @ 25 km/L: <strong>₱1,716/month</strong><br><br>
+        <em>Based on ₱65/L gas, 22 working days, round trip</em>
+      </div>
+    </div>
+  </div>
+  
+  <div id="schools" class="content">
+    <div class="category-title">Accredited Motorcycle Riding Schools</div>
+    
+    <div class="budget-range">
+      <div class="range-title">📋 What to Expect in PDC Training</div>
+      <div class="bike-list">
+        <strong>Course Duration:</strong> 15 hours (usually 2-3 days)<br>
+        <strong>Topics Covered:</strong><br>
+        • Traffic rules and road signs<br>
+        • Basic motorcycle operation and controls<br>
+        • Starting, stopping, and turning techniques<br>
+        • Defensive riding strategies<br>
+        • Emergency braking and swerving<br>
+        • Slalom and figure-8 practice<br>
+        • Final practical exam<br><br>
+        <em>Passing rate: 85-95% for those who complete all sessions</em>
+      </div>
+    </div>
+    
+    <div class="category-title">Metro Manila Schools</div>
+    
+    <div class="school-card">
+      <div class="school-name">A1 Driving School</div>
+      <div class="school-location">📍 Multiple branches: Quezon City, Makati, Mandaluyong</div>
+      <div class="school-info">
+        <strong>Price:</strong> ₱1,500-2,000 (Theoretical + Practical)<br>
+        <strong>Schedule:</strong> Daily classes, weekend available<br>
+        <strong>Contact:</strong> 0917-XXX-XXXX | a1driving.com.ph<br>
+        <strong>Notes:</strong> Most popular, fast processing, own training bikes provided
+      </div>
+    </div>
+    
+    <div class="school-card">
+      <div class="school-name">Smart Driving School</div>
+      <div class="school-location">📍 Commonwealth Ave, QC | Ortigas, Pasig</div>
+      <div class="school-info">
+        <strong>Price:</strong> ₱1,800-2,200<br>
+        <strong>Schedule:</strong> Monday-Saturday, 7 AM - 5 PM<br>
+        <strong>Contact:</strong> 0922-XXX-XXXX<br>
+        <strong>Notes:</strong> Large training area, patient instructors, pick-up service available
+      </div>
+    </div>
+    
+    <div class="school-card">
+      <div class="school-name">Honda Safety Driving Center</div>
+      <div class="school-location">📍 Greenfield District, Mandaluyong</div>
+      <div class="school-info">
+        <strong>Price:</strong> ₱2,500-3,000 (Premium course)<br>
+        <strong>Schedule:</strong> Pre-scheduled sessions, advance booking required<br>
+        <strong>Contact:</strong> 0915-XXX-XXXX | honda.com.ph/safety<br>
+        <strong>Notes:</strong> Best facilities, professional instructors, Honda bikes only
+      </div>
+    </div>
+    
+    <div class="school-card">
+      <div class="school-name">Yamaha Riding Academy</div>
+      <div class="school-location">📍 Fairview, QC | EDSA Greenhills</div>
+      <div class="school-info">
+        <strong>Price:</strong> ₱1,500-2,000<br>
+        <strong>Schedule:</strong> Weekdays and weekends available<br>
+        <strong>Contact:</strong> 0918-XXX-XXXX<br>
+        <strong>Notes:</strong> Modern Yamaha training bikes, air-conditioned classroom
+      </div>
+    </div>
+    
+    <div class="category-title">Provincial Schools</div>
+    
+    <div class="school-card">
+      <div class="school-name">Cebu Motorcycle Training Center</div>
+      <div class="school-location">📍 Mandaue City, Cebu</div>
+      <div class="school-info">
+        <strong>Price:</strong> ₱1,200-1,800<br>
+        <strong>Schedule:</strong> Daily, 8 AM - 4 PM<br>
+        <strong>Contact:</strong> 0923-XXX-XXXX<br>
+        <strong>Notes:</strong> Largest in Visayas, multiple branches in Cebu
+      </div>
+    </div>
+    
+    <div class="school-card">
+      <div class="school-name">Davao Safe Riders Academy</div>
+      <div class="school-location">📍 Buhangin, Davao City</div>
+      <div class="school-info">
+        <strong>Price:</strong> ₱1,000-1,500<br>
+        <strong>Schedule:</strong> Monday-Saturday<br>
+        <strong>Contact:</strong> 0917-XXX-XXXX<br>
+        <strong>Notes:</strong> Affordable rates, experienced instructors from Mindanao
+      </div>
+    </div>
+    
+    <div class="school-card">
+      <div class="school-name">Baguio Mountain Riders School</div>
+      <div class="school-location">📍 Session Road, Baguio City</div>
+      <div class="school-info">
+        <strong>Price:</strong> ₱1,500-2,000<br>
+        <strong>Schedule:</strong> Daily except Sunday<br>
+        <strong>Contact:</strong> 0926-XXX-XXXX<br>
+        <strong>Notes:</strong> Specializes in uphill/downhill riding techniques
+      </div>
+    </div>
+    
+    <div class="school-card">
+      <div class="school-name">Pampanga Riders Training Hub</div>
+      <div class="school-location">📍 Angeles City, Pampanga</div>
+      <div class="school-info">
+        <strong>Price:</strong> ₱1,200-1,600<br>
+        <strong>Schedule:</strong> Weekdays and weekends<br>
+        <strong>Contact:</strong> 0919-XXX-XXXX<br>
+        <strong>Notes:</strong> Near NLEX exit, convenient for North Luzon riders
+      </div>
+    </div>
+    
+    <div class="school-card">
+      <div class="school-name">Laguna Motorcycle Academy</div>
+      <div class="school-location">📍 Calamba, Laguna | Sta. Rosa, Laguna</div>
+      <div class="school-info">
+        <strong>Price:</strong> ₱1,300-1,800<br>
+        <strong>Schedule:</strong> 7 days a week<br>
+        <strong>Contact:</strong> 0920-XXX-XXXX<br>
+        <strong>Notes:</strong> Near SLEX exits, large practice area
+      </div>
+    </div>
+    
+    <ul class="tips-list">
+      <li><strong>Booking tips:</strong> Call ahead to reserve slots especially on weekends. Bring 2 valid IDs, 1x1 photos, and pen. Some schools offer promo packages with medical certificate included.</li>
+      
+      <li><strong>What to wear:</strong> Long pants, closed shoes (no slippers!), comfortable shirt. Schools provide helmets and gloves. Avoid bringing valuables.</li>
+      
+      <li><strong>Failed the exam?</strong> You can retake after 7 days. Some schools offer free retake if you fail, others charge ₱300-500. Practice more on slalom and figure-8.</li>
+      
+      <li><strong>Certificate validity:</strong> PDC certificate is valid for 6 months. Process your student permit within this period or you'll need to retake the course.</li>
+      
+      <li><strong>Verify accreditation:</strong> Check LTO website for list of accredited schools. Avoid non-accredited schools - LTO won't accept their certificates!</li>
+    </ul>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">🎓 After PDC - Next Steps</div>
+      </div>
+      <div class="bike-desc">
+        <strong>1. Get Medical Certificate (₱200-500)</strong><br>
+        • Visit LTO-accredited clinics near LTO offices<br>
+        • Bring 1 valid ID, 1x1 photo<br>
+        • Basic health check: BP, vision, drug test<br><br>
+        
+        <strong>2. Apply for Student Permit (₱300-500)</strong><br>
+        • Go to LTO with PDC certificate and medical<br>
+        • Take written exam (40 questions, 30 to pass)<br>
+        • Get Student Permit valid for 1 month<br><br>
+        
+        <strong>3. Practice with Licensed Rider</strong><br>
+        • Must ride with someone who has valid license<br>
+        • Practice for at least 1 month before practical exam<br>
+        • Focus on areas where you're weak<br><br>
+        
+        <strong>4. Take Practical Driving Test</strong><br>
+        • Schedule at LTO after 1 month<br>
+        • Bring your own motorcycle or rent at LTO<br>
+        • Pass and get your Non-Pro license!
+      </div>
+    </div>
+  </div>
+
+  <div id="commuter" class="content active">
+    <div class="category-title">Best Commuter Bikes 2026</div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Honda Click 160</div>
+        <div class="bike-price">₱112,900</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">160cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Fuel Economy</div>
+          <div class="spec-value">45 km/L</div>
+        </div>
+      </div>
+      <div class="bike-desc">Perfect urban scooter with spacious underseat storage, fuel-efficient eSP+ engine, and excellent build quality. Ideal for Manila traffic.</div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Yamaha Mio i 125</div>
+        <div class="bike-price">₱79,900</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">125cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Fuel Economy</div>
+          <div class="spec-value">50 km/L</div>
+        </div>
+      </div>
+      <div class="bike-desc">Budget-friendly Blue Core engine, excellent fuel efficiency, lightweight and easy to handle. Great starter bike for new riders.</div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Honda TMX 155</div>
+        <div class="bike-price">₱95,900</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">155cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Fuel Economy</div>
+          <div class="spec-value">42 km/L</div>
+        </div>
+      </div>
+      <div class="bike-desc">Legendary Pinoy backbone bike. Reliable, easy maintenance, perfect for delivery riders and provincial roads. Strong resale value.</div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Suzuki Raider R150 Fi</div>
+        <div class="bike-price">₱98,900</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">147cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Fuel Economy</div>
+          <div class="spec-value">40 km/L</div>
+        </div>
+      </div>
+      <div class="bike-desc">Sporty underbone with strong acceleration. Popular among riders who want style and performance. Great for daily commute with weekend fun.</div>
+    </div>
+  </div>
+  
+  <div id="sport" class="content">
+    <div class="category-title">Sport & Performance Bikes</div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Yamaha R15 V4</div>
+        <div class="bike-price">₱179,900</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">155cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Power</div>
+          <div class="spec-value">18.4 HP</div>
+        </div>
+      </div>
+      <div class="bike-desc">Race-inspired VVA technology, slipper clutch, LED lights. Best entry-level sportbike in PH market with excellent handling.</div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Honda CBR150R</div>
+        <div class="bike-price">₱168,900</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">149cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Power</div>
+          <div class="spec-value">17.1 HP</div>
+        </div>
+      </div>
+      <div class="bike-desc">Reliable Honda engine, comfortable riding position, affordable maintenance. Perfect balance of sport and practicality.</div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Kawasaki Ninja 400</div>
+        <div class="bike-price">₱329,000</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">399cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Power</div>
+          <div class="spec-value">45 HP</div>
+        </div>
+      </div>
+      <div class="bike-desc">Twin-cylinder power, excellent for highway touring and spirited rides. Lightweight chassis, great for beginners to intermediate.</div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">KTM RC 200</div>
+        <div class="bike-price">₱189,000</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">199cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Power</div>
+          <div class="spec-value">25 HP</div>
+        </div>
+      </div>
+      <div class="bike-desc">European engineering, aggressive styling, sharp handling. Best for riders who want track-ready performance on a budget.</div>
+    </div>
+  </div>
+  
+  <div id="adventure" class="content">
+    <div class="category-title">Adventure & Touring Bikes</div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Honda ADV 160</div>
+        <div class="bike-price">₱149,900</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">156cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Fuel Tank</div>
+          <div class="spec-value">15L</div>
+        </div>
+      </div>
+      <div class="bike-desc">Perfect for Philippine roads. High ground clearance, large fuel tank, comfortable for long rides. Excellent for provincial touring.</div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Yamaha XSR 155</div>
+        <div class="bike-price">₱169,900</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">155cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Power</div>
+          <div class="spec-value">19.3 HP</div>
+        </div>
+      </div>
+      <div class="bike-desc">Retro-modern styling, VVA engine, comfortable upright position. Great all-rounder for city and highway riding.</div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Royal Enfield Himalayan</div>
+        <div class="bike-price">₱289,000</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">411cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Fuel Tank</div>
+          <div class="spec-value">15L</div>
+        </div>
+      </div>
+      <div class="bike-desc">True adventure bike built for rough roads. Long-travel suspension, high ground clearance. Perfect for exploring Luzon and Visayas.</div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Suzuki V-Strom 250</div>
+        <div class="bike-price">₱259,000</div>
+      </div>
+      <div class="bike-specs">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-value">248cc</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Fuel Tank</div>
+          <div class="spec-value">17L</div>
+        </div>
+      </div>
+      <div class="bike-desc">Lightweight adventure tourer, excellent wind protection, comfortable for 2-up riding. Great for SLEX to Bicol trips.</div>
+    </div>
+  </div>
+  
+  <div id="budget" class="content">
+    <div class="category-title">Bikes By Budget Range</div>
+    
+    <div class="budget-range">
+      <div class="range-title">Under ₱70,000</div>
+      <div class="bike-list">
+        • Yamaha Mio Sporty - ₱59,900 (Entry scooter)<br>
+        • Honda Beat - ₱67,900 (Reliable commuter)<br>
+        • Suzuki Smash 115 - ₱64,900 (Fuel efficient)<br>
+        • Yamaha Sight 115 - ₱65,900 (Budget underbone)
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">₱70,000 - ₱100,000</div>
+      <div class="bike-list">
+        • Yamaha Mio i 125 - ₱79,900<br>
+        • Honda TMX 155 - ₱95,900<br>
+        • Suzuki Raider R150 - ₱98,900<br>
+        • Honda XRM 125 - ₱88,900<br>
+        • Kawasaki CT 100 - ₱74,900
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">₱100,000 - ₱150,000</div>
+      <div class="bike-list">
+        • Honda Click 160 - ₱112,900<br>
+        • Yamaha Aerox 155 - ₱139,900<br>
+        • Honda ADV 160 - ₱149,900<br>
+        • Suzuki Burgman Street 125 - ₱119,900<br>
+        • Yamaha NMAX 155 - ₱135,900
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">₱150,000 - ₱250,000</div>
+      <div class="bike-list">
+        • Honda CBR150R - ₱168,900<br>
+        • Yamaha R15 V4 - ₱179,900<br>
+        • KTM RC 200 - ₱189,000<br>
+        • Yamaha XSR 155 - ₱169,900<br>
+        • Honda PCX 160 - ₱159,900
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">Above ₱250,000</div>
+      <div class="bike-list">
+        • Royal Enfield Himalayan - ₱289,000<br>
+        • Suzuki V-Strom 250 - ₱259,000<br>
+        • Kawasaki Ninja 400 - ₱329,000<br>
+        • Honda CB500X - ₱419,000<br>
+        • Yamaha MT-03 - ₱299,000
+      </div>
+    </div>
+  </div>
+  
+  <div id="tips" class="content">
+    <div class="category-title">Buying Tips for Pinoy Riders</div>
+    
+    <ul class="tips-list">
+      <li><strong>Test Ride First:</strong> Always test ride before buying. Check comfort, handling, and if your feet can flat on the ground. Visit multiple dealers.</li>
+      
+      <li><strong>Check Maintenance Costs:</strong> Ask about service intervals and parts availability. Honda and Yamaha have the best parts network in PH.</li>
+      
+      <li><strong>Consider Fuel Efficiency:</strong> With rising gas prices, calculate monthly fuel costs. Aim for bikes with 40+ km/L for daily commute.</li>
+      
+      <li><strong>Insurance is Important:</strong> Get at least CTPL (₱350-650/year). Comprehensive insurance (₱3,000-8,000/year) protects against theft and accidents.</li>
+      
+      <li><strong>Registration Costs:</strong> Budget ₱3,000-5,000 for first registration including plates, OR/CR, and LTO fees. Renewal is ₱1,500-2,500 yearly.</li>
+      
+      <li><strong>Dealer vs Second-hand:</strong> Brand new offers warranty (1-2 years) but costs more. Second-hand saves 20-40% but check service history carefully.</li>
+      
+      <li><strong>Financing Options:</strong> Banks offer 12-36 months terms at 1.5-2% monthly interest. Dealer in-house financing is easier but higher rates (2-3%).</li>
+      
+      <li><strong>Monsoon Preparation:</strong> Consider bikes with good ground clearance (150mm+) for flooded streets. Store indoors during typhoon season.</li>
+      
+      <li><strong>Resale Value:</strong> Honda, Yamaha, and Suzuki hold value best. Avoid rare brands with limited service centers in your area.</li>
+      
+      <li><strong>Safety Gear Budget:</strong> Set aside ₱5,000-10,000 for helmet (₱2,000-5,000), gloves (₱500-1,000), jacket (₱2,000-4,000). Don't skimp on safety.</li>
+    </ul>
+  </div>
+  
+  <div id="dealers" class="content">
+    <div class="category-title">Major Motorcycle Dealers in PH</div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">Honda Philippines (Wings Card)</div>
+      <div class="dealer-info">
+        Network: Nationwide (200+ dealers)<br>
+        Popular Models: Click 160, ADV 160, TMX 155, CBR150R<br>
+        Financing: In-house and bank financing available<br>
+        Service: Excellent parts availability, 1-year warranty
+      </div>
+    </div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">Yamaha Motor Philippines</div>
+      <div class="dealer-info">
+        Network: Nationwide (300+ dealers)<br>
+        Popular Models: Mio i 125, NMAX 155, R15 V4, Aerox 155<br>
+        Financing: Y-Card, bank partnerships<br>
+        Service: Strong dealer network, 1-year warranty
+      </div>
+    </div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">Suzuki Philippines</div>
+      <div class="dealer-info">
+        Network: Major cities and provinces (150+ dealers)<br>
+        Popular Models: Raider R150, Burgman Street, V-Strom 250<br>
+        Financing: In-house and bank options<br>
+        Service: Good parts support, 1-year warranty
+      </div>
+    </div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">Kawasaki Motors Philippines</div>
+      <div class="dealer-info">
+        Network: Metro Manila, major cities (50+ dealers)<br>
+        Popular Models: Ninja 400, Z400, Versys 300<br>
+        Financing: Bank financing through BPI, Metrobank<br>
+        Service: Premium service, 2-year warranty
+      </div>
+    </div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">KTM Philippines</div>
+      <div class="dealer-info">
+        Network: Metro Manila, Cebu, Davao (20+ dealers)<br>
+        Popular Models: Duke 200, RC 200, Adventure 250<br>
+        Financing: Bank financing available<br>
+        Service: Specialized service centers, 2-year warranty
+      </div>
+    </div>
+    
+    <div class="dealer-card">
+      <div class="dealer-name">Royal Enfield Philippines</div>
+      <div class="dealer-info">
+        Network: Metro Manila, select cities (15+ dealers)<br>
+        Popular Models: Himalayan, Meteor 350, Classic 350<br>
+        Financing: Bank partnerships<br>
+        Service: Premium service centers, 2-year warranty
+      </div>
+    </div>
+  </div>
+  
+  <div id="maintenance" class="content">
+    <div class="category-title">Maintenance Schedule & Costs</div>
+    
+    <div class="budget-range">
+      <div class="range-title">Break-in Period (0-1,000 km)</div>
+      <div class="bike-list">
+        <strong>First service - FREE at most dealers</strong><br>
+        • Change engine oil and filter<br>
+        • Check chain tension and lubrication<br>
+        • Inspect brakes and tire pressure<br>
+        • Adjust carburetor/fuel injection<br>
+        • Check all nuts and bolts<br>
+        <em>Tip: Don't exceed 6,000 RPM during break-in</em>
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">Regular Service (Every 3,000-5,000 km)</div>
+      <div class="bike-list">
+        <strong>Cost: ₱800-1,500</strong><br>
+        • Engine oil change (₱300-600)<br>
+        • Oil filter replacement (₱150-300)<br>
+        • Chain cleaning and lube (₱100-200)<br>
+        • Brake inspection<br>
+        • Tire pressure check<br>
+        • Air filter cleaning
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">Major Service (Every 10,000-12,000 km)</div>
+      <div class="bike-list">
+        <strong>Cost: ₱2,500-5,000</strong><br>
+        • All regular service items<br>
+        • Spark plug replacement (₱150-400)<br>
+        • Air filter replacement (₱200-500)<br>
+        • Brake fluid change (₱300-500)<br>
+        • Coolant replacement if applicable (₱400-800)<br>
+        • Valve clearance check (₱500-1,500)<br>
+        • Throttle body cleaning
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">Common Replacement Parts</div>
+      <div class="bike-list">
+        • Chain & Sprocket Set: ₱1,500-3,500 (every 15,000-20,000 km)<br>
+        • Brake Pads Front: ₱400-800 (every 10,000-15,000 km)<br>
+        • Brake Pads Rear: ₱300-600 (every 15,000-20,000 km)<br>
+        • Tires Front: ₱1,200-2,500 (every 15,000-25,000 km)<br>
+        • Tires Rear: ₱1,500-3,000 (every 10,000-20,000 km)<br>
+        • Battery: ₱800-2,000 (every 2-3 years)<br>
+        • CVT Belt (scooters): ₱800-1,500 (every 15,000-20,000 km)
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">DIY Maintenance Tips</div>
+      </div>
+      <div class="bike-desc">
+        <strong>Weekly Checks:</strong> Tire pressure (front: 28-32 PSI, rear: 32-36 PSI), chain tension (25-35mm slack), lights and signals, brake lever play.<br><br>
+        <strong>Monthly:</strong> Chain cleaning and lube (every 500km or after rain), battery terminals, coolant level, brake fluid level.<br><br>
+        <strong>Save Money:</strong> Learn basic maintenance like oil changes (₱300 for oil vs ₱800 at shop). Join Facebook groups for tips and cheap parts sources.
+      </div>
+    </div>
+  </div>
+  
+  <div id="legal" class="content">
+    <div class="category-title">LTO Requirements & Traffic Violations</div>
+    
+    <div class="budget-range">
+      <div class="range-title">New Motorcycle Registration</div>
+      <div class="bike-list">
+        <strong>Total Cost: ₱3,000-5,000</strong><br><br>
+        <strong>Required Documents:</strong><br>
+        • Certificate of Stock Reported (from dealer)<br>
+        • Sales Invoice and Official Receipt<br>
+        • Valid ID with photo and signature<br>
+        • Certificate of Emission Compliance<br>
+        • Certificate of Deposit (MVUC)<br><br>
+        <strong>Fees Breakdown:</strong><br>
+        • Registration Fee: ₱500-1,200 (depends on engine size)<br>
+        • License Plates: ₱450<br>
+        • Number Coding Exemption: ₱500<br>
+        • MV File Fee: ₱65<br>
+        • Stenciling: ₱100<br>
+        • RFID/Sticker: ₱300-500<br><br>
+        <em>Processing time: 1-3 days with complete documents</em>
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">Annual Registration Renewal</div>
+      <div class="bike-list">
+        <strong>Cost: ₱1,500-2,500</strong><br><br>
+        • Bring OR/CR (original copy)<br>
+        • CTPL insurance (₱350-650/year)<br>
+        • Emission test certificate (₱200-400)<br>
+        • Valid ID<br><br>
+        <em>Renew within 1 month before expiry to avoid penalties</em><br>
+        <em>Late renewal penalty: ₱100/month</em>
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">Driver's License (Restriction 1 → Full A/A1)</div>
+      <div class="bike-list">
+        <strong>Student Permit (Restriction 1): ₱300-500</strong><br>
+        • PDC Certificate (₱500-1,500 from accredited schools)<br>
+        • Medical Certificate (₱200-500)<br>
+        • Valid for 1 month, must practice with licensed rider<br><br>
+        <strong>Non-Pro License (5 years): ₱585</strong><br>
+        • Pass practical driving test after 1 month<br>
+        • Class A (big bikes >400cc) or A1 (≤400cc)<br><br>
+        <em>Total cost first-time: ₱2,000-3,000 including PDC</em>
+      </div>
+    </div>
+    
+    <div class="category-title">Common Traffic Violations & Fines</div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">₱1,000 Violations</div>
+      </div>
+      <div class="bike-desc">
+        • No helmet (driver or passenger)<br>
+        • No side mirror<br>
+        • Obstruction of plate number<br>
+        • Improper person per LTO (3 riders on motorcycle)<br>
+        • Using mobile phone while driving
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">₱1,500-2,000 Violations</div>
+      </div>
+      <div class="bike-desc">
+        • No driver's license<br>
+        • Expired registration (over 1 month)<br>
+        • No OR/CR<br>
+        • Reckless driving<br>
+        • Driving under influence (DUI): ₱2,000-10,000 + possible impounding
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">₱500-1,000 Violations</div>
+      </div>
+      <div class="bike-desc">
+        • Illegal parking<br>
+        • No license plates<br>
+        • Improper mounting/dismounting of curbs<br>
+        • Illegal use of restricted lanes<br>
+        • Overloading (excessive cargo)
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Impounding Offenses</div>
+      </div>
+      <div class="bike-desc">
+        • No OR/CR (30 days impound)<br>
+        • Expired registration over 6 months<br>
+        • Illegal modification (high exhaust, loud mufflers)<br>
+        • Fake plates or documents<br>
+        • Repeated violations (3+ within 6 months)<br><br>
+        <em>Impounding fee: ₱200/day + violation fine</em>
+      </div>
+    </div>
+    
+    <ul class="tips-list">
+      <li><strong>Always carry:</strong> Driver's license, OR/CR (original), CTPL insurance. Keep photocopies in your wallet and originals in waterproof bag.</li>
+      
+      <li><strong>Know your rights:</strong> Officers must show ID and issue proper receipt. You can request to pay at LTO office instead of on-the-spot fines.</li>
+      
+      <li><strong>Avoid fixers:</strong> Legal LTO processing takes 1-3 days. Fixers charge 2-3x and may provide fake documents. Use official LTO portals only.</li>
+    </ul>
+  </div>
+  
+  <div id="gear" class="content">
+    <div class="category-title">Essential Riding Gear & Accessories</div>
+    
+    <div class="budget-range">
+      <div class="range-title">Helmet Guide (Most Important!)</div>
+      <div class="bike-list">
+        <strong>Budget (₱800-1,500):</strong><br>
+        • Brands: HJC CL-ST, KYT DJ, INDEX<br>
+        • Half-face, basic padding<br>
+        • PS or ICC certified (minimum requirement)<br><br>
+        
+        <strong>Mid-range (₱2,000-4,000):</strong><br>
+        • Brands: LS2, KYT NFR, HJC i70<br>
+        • Full-face, better ventilation<br>
+        • DOT or ECE certified, removable liner<br><br>
+        
+        <strong>Premium (₱5,000-15,000):</strong><br>
+        • Brands: AGV, Shoei, Arai, Bell<br>
+        • Advanced safety features, lighter weight<br>
+        • Multiple certifications, superior comfort<br><br>
+        
+        <em>⚠️ Never buy helmets without PS/ICC stickers - illegal and unsafe!</em>
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">Protective Clothing</div>
+      <div class="bike-list">
+        <strong>Riding Jacket (₱1,500-5,000):</strong><br>
+        • Mesh jacket for tropical weather: ₱1,500-2,500<br>
+        • With CE-approved armor (elbow, shoulder, back): ₱3,000-5,000<br>
+        • Waterproof touring jacket: ₱4,000-8,000<br><br>
+        
+        <strong>Gloves (₱500-2,000):</strong><br>
+        • Summer mesh gloves: ₱500-1,000<br>
+        • Full leather with knuckle protection: ₱1,200-2,500<br>
+        • Waterproof gloves: ₱1,500-3,000<br><br>
+        
+        <strong>Riding Pants (₱2,000-5,000):</strong><br>
+        • Denim with knee armor: ₱2,000-3,000<br>
+        • Waterproof touring pants: ₱3,500-6,000<br><br>
+        
+        <strong>Boots (₱2,000-6,000):</strong><br>
+        • Short urban boots: ₱2,000-3,500<br>
+        • Full touring boots with ankle protection: ₱4,000-8,000
+      </div>
+    </div>
+    
+    <div class="budget-range">
+      <div class="range-title">Must-Have Accessories</div>
+      <div class="bike-list">
+        <strong>Safety & Convenience:</strong><br>
+        • Disc lock with alarm: ₱500-1,200<br>
+        • Chain lock heavy-duty: ₱800-2,000<br>
+        • Phone mount waterproof: ₱300-800<br>
+        • USB charger with voltmeter: ₱300-600<br>
+        • Rain cover for bike: ₱300-800<br><br>
+        
+        <strong>Storage:</strong><br>
+        • Tail bag waterproof: ₱800-2,000<br>
+        • Tank bag with phone pocket: ₱1,200-2,500<br>
+        • Side panniers (pair): ₱2,500-5,000<br>
+        • Top box 30-40L: ₱2,000-4,000<br><br>
+        
+        <strong>Tools & Emergency:</strong><br>
+        • Basic tool kit: ₱500-1,000<br>
+        • Tire repair kit: ₱200-400<br>
+        • Portable air pump: ₱600-1,500<br>
+        • First aid kit: ₱300-600<br>
+        • Emergency rain poncho: ₱150-300
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Recommended Starter Package</div>
+        <div class="bike-price">₱5,500-8,000</div>
+      </div>
+      <div class="bike-desc">
+        <strong>Minimum Safety Setup:</strong><br>
+        • Full-face helmet (DOT): ₱2,500-4,000<br>
+        • Mesh riding jacket: ₱1,500-2,000<br>
+        • Gloves with knuckle guard: ₱800-1,200<br>
+        • Disc lock: ₱500-800<br>
+        • Phone mount: ₱400-600<br>
+        • Basic tools: ₱500-800<br><br>
+        
+        <em>Don't cheap out on safety gear! A good helmet can save your life. Buy gear before expensive mods.</em>
+      </div>
+    </div>
+    
+    <div class="bike-card">
+      <div class="bike-header">
+        <div class="bike-name">Where to Buy Gear</div>
+      </div>
+      <div class="bike-desc">
+        <strong>Physical Stores:</strong><br>
+        • Motoworld, Wheeltek, Motortrade (nationwide)<br>
+        • 3F Racing, RS Taichi Shop (Metro Manila)<br>
+        • Decathlon (affordable basics)<br><br>
+        
+        <strong>Online:</strong><br>
+        • Lazada, Shopee (check seller ratings!)<br>
+        • Official brand stores on marketplaces<br>
+        • Moto-specific shops: Webike, Helm City PH<br><br>
+        
+        <em>Tip: Buy during 11.11, 12.12 sales for 20-40% discounts</em>
+      </div>
+    </div>
+    
+    <ul class="tips-list">
+      <li><strong>Gear sizing:</strong> Try helmets in-store if possible. Should be snug but not painful. Visors should open/close smoothly. For jackets, wear with layers underneath.</li>
+      
+      <li><strong>Color matters:</strong> Bright colors (yellow, orange, white) are more visible to cars. Black looks cool but harder to see at night.</li>
+      
+      <li><strong>ATGATT:</strong> "All The Gear, All The Time" - even short trips need full protection. Most accidents happen within 5km of home.</li>
+      
+      <li><strong>Rainy season prep:</strong> Keep waterproof jacket and gloves in tail bag. Visor anti-fog spray (₱150-300) is essential for monsoon riding.</li>
+    </ul>
+  </div>
+
+  <script>
+    function showTab(tabName) {
+      const contents = document.querySelectorAll('.content');
+      const tabs = document.querySelectorAll('.tab');
+      
+      contents.forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      document.getElementById(tabName).classList.add('active');
+      event.target.classList.add('active');
+    }
+    
+    function updateFuelEconomy() {
+      // Update when bike type changes - economy already in value
+    }
+    
+    function calculateFuel() {
+      const fuelEconomy = parseFloat(document.getElementById('bikeType').value);
+      const dailyKm = parseFloat(document.getElementById('dailyKm').value);
+      const workDays = parseFloat(document.getElementById('workDays').value);
+      const gasPrice = parseFloat(document.getElementById('gasPrice').value);
+      
+      // Calculate round trip
+      const totalKmPerMonth = dailyKm * 2 * workDays;
+      const litersNeeded = totalKmPerMonth / fuelEconomy;
+      const monthlyCost = litersNeeded * gasPrice;
+      
+      // Calculate yearly
+      const yearlyCost = monthlyCost * 12;
+      
+      // Show results
+      document.getElementById('fuelResult').style.display = 'block';
+      document.getElementById('monthlyCost').textContent = '₱' + monthlyCost.toFixed(2);
+      
+      document.getElementById('breakdown').innerHTML = `
+        <strong>Breakdown:</strong><br>
+        • Total km/month: ${totalKmPerMonth.toFixed(0)} km (${dailyKm} km × 2 trips × ${workDays} days)<br>
+        • Fuel needed: ${litersNeeded.toFixed(2)} liters<br>
+        • Cost per liter: ₱${gasPrice.toFixed(2)}<br>
+        • Daily fuel cost: ₱${(monthlyCost / workDays).toFixed(2)}<br>
+        • <strong>Yearly estimate: ₱${yearlyCost.toFixed(2)}</strong><br><br>
+        💡 Tip: Better fuel economy = more savings! A bike with 50 km/L vs 30 km/L saves you ₱${((totalKmPerMonth/30 * gasPrice) - (totalKmPerMonth/50 * gasPrice)).toFixed(2)}/month
+      `;
+      
+      // Scroll to result
+      document.getElementById('fuelResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    
+    function calculateLoan() {
+      const bikePrice = parseFloat(document.getElementById('bikePrice').value);
+      const downPayment = parseFloat(document.getElementById('downPayment').value);
+      const term = parseInt(document.getElementById('loanTerm').value);
+      const monthlyRate = parseFloat(document.getElementById('interestRate').value) / 100;
+      
+      // Calculate loan amount
+      const loanAmount = bikePrice - downPayment;
+      
+      // Calculate monthly payment using standard formula
+      const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
+      
+      // Calculate totals
+      const totalPayment = monthlyPayment * term;
+      const totalInterest = totalPayment - loanAmount;
+      const totalCost = bikePrice + totalInterest;
+      
+      // Down payment percentage
+      const downPercent = (downPayment / bikePrice * 100).toFixed(1);
+      
+      // Show results
+      document.getElementById('loanResult').style.display = 'block';
+      document.getElementById('monthlyPayment').textContent = '₱' + monthlyPayment.toFixed(2);
+      
+      document.getElementById('loanBreakdown').innerHTML = `
+        <strong>Loan Breakdown:</strong><br>
+        • Bike Price: ₱${bikePrice.toLocaleString()}<br>
+        • Down Payment: ₱${downPayment.toLocaleString()} (${downPercent}%)<br>
+        • Loan Amount: ₱${loanAmount.toLocaleString()}<br>
+        • Interest Rate: ${(monthlyRate * 100).toFixed(2)}% per month<br>
+        • Loan Term: ${term} months<br><br>
+        
+        <strong>Payment Summary:</strong><br>
+        • Monthly Payment: ₱${monthlyPayment.toFixed(2)}<br>
+        • Total Payments: ₱${totalPayment.toFixed(2)}<br>
+        • Total Interest: ₱${totalInterest.toFixed(2)}<br>
+        • <strong>Total Cost: ₱${totalCost.toFixed(2)}</strong><br><br>
+        
+        💡 Tip: Increasing down payment to ₱${(downPayment + 10000).toLocaleString()} would save you ₱${((loanAmount - (loanAmount - 10000)) * monthlyRate * term).toFixed(2)} in interest!
+      `;
+      
+      // Scroll to result
+      document.getElementById('loanResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>
